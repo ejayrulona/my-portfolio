@@ -1,38 +1,5 @@
-import { useState, useEffect, useRef } from "react";
-import { SKILLS, SKILL_PROFICIENCY } from "../data/portfolioData";
+import { SKILLS } from "../data/portfolioData";
 import Reveal from "./Reveal";
-
-function SkillBar({ percentage, delay }) {
-    const barRef = useRef(null);
-    const [width, setWidth] = useState(0);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => setWidth(percentage), delay);
-                    observer.disconnect();
-                }
-            },
-            { threshold: 0.5 }
-        );
-
-        if (barRef.current) {
-            observer.observe(barRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, [percentage, delay]);
-
-    return (
-        <div ref={barRef} className="h-px bg-white/10 overflow-hidden">
-            <div
-                className="h-full bg-white transition-all duration-1000 ease-out"
-                style={{ width: `${width}%` }}
-            />
-        </div>
-    );
-}
 
 function SkillCard({ skillGroup, categoryIndex }) {
     return (
@@ -46,28 +13,16 @@ function SkillCard({ skillGroup, categoryIndex }) {
                     {skillGroup.category}
                 </div>
 
-                <div className="space-y-4">
-                    {skillGroup.items.map((skill, skillIndex) => {
-                        const proficiency = SKILL_PROFICIENCY[skill] ?? 80;
-
-                        return (
-                            <div key={skill}>
-                                <div className="flex justify-between mb-1.5">
-                                    <span className="text-white text-sm font-medium">{skill}</span>
-                                    <span
-                                        className="text-white/30 text-xs"
-                                        style={{ fontFamily: "'DM Mono', monospace" }}
-                                    >
-                                        {proficiency}%
-                                    </span>
-                                </div>
-                                <SkillBar
-                                    percentage={proficiency}
-                                    delay={categoryIndex * 100 + skillIndex * 80}
-                                />
-                            </div>
-                        );
-                    })}
+                <div className="flex flex-wrap gap-3">
+                    {skillGroup.items.map((skill) => (
+                        <span
+                            key={skill}
+                            className="border border-white/15 text-white/70 text-xs px-3 py-1.5 hover:border-white/50 hover:text-white transition-all duration-300"
+                            style={{ fontFamily: "'DM Mono', monospace" }}
+                        >
+                            {skill}
+                        </span>
+                    ))}
                 </div>
 
             </div>
