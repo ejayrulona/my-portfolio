@@ -1,7 +1,7 @@
 // Static data used across the portfolio sections
 export const SKILLS = [
     { category: "Frontend", items: ["React", "JavaScript", "Tailwind CSS",] },
-    { category: "Backend", items: ["Python", "Django", "MySQL", "SQLite"] },
+    { category: "Backend", items: ["Python", "Django", "PHP", "MySQL", "SQLite"] },
     { category: "Tools", items: ["Git", "GitHub", "Figma"] },
 ];
 
@@ -11,6 +11,7 @@ export const SKILL_PROFICIENCY = {
     "Tailwind CSS": 80,
     Python: 85,
     Django: 85,
+    PHP: 80,
     MySQL: 80,
     SQLite: 78,
     Git: 80,
@@ -31,7 +32,7 @@ export const PROJECTS = [
     {
         number: "02",
         title: "PARK TRACK",
-        tags: ["Django", "JavaScript", "MySQL"],
+        tags: ["Django", "JavaScript", "YOLOv8", "MySQL"],
         description:
             "ParkTrack is an innovative computer vision-based smart parking management system designed to make parking faster, smarter, and more efficient. Developed as a capstone project by BSIT students from Western Mindanao State University, the system uses real-time video feeds and advanced AI technology—powered by the YOLOv8 object detection model—to automatically detect vehicles and determine whether parking slots are occupied or vacant.",
         year: "2026",
