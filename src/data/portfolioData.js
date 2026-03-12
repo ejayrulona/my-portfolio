@@ -48,8 +48,8 @@ export const CONTACT_INFO = [
 
 export const SOCIAL_LINKS = [
     { label: "GitHub", href: "https://github.com/ejayrulona" },
-    { label: "LinkedIn", href: "in/ejay-rulona-5507553b0" },
-    { label: "Facebook", href: "ejay.rulona.9" }
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/ejay-rulona-5507553b0/" },
+    { label: "Facebook", href: "https://web.facebook.com/ejay.rulona.9/" }
 ];
 
 export const STATS = [
